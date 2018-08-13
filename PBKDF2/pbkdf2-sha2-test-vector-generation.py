@@ -57,6 +57,22 @@ test_vector_6_256 = PBKDF2HMAC (
     iterations = 4096,
     backend = backend
 )
+
+test_vector_7_256 = PBKDF2HMAC (
+    algorithm = hashes.SHA256(),
+    length = 128,
+    salt = b"salt",
+    iterations = 1,
+    backend = backend
+)
+
+test_vector_8_256 = PBKDF2HMAC (
+    algorithm = hashes.SHA256(),
+    length = 128,
+    salt = b"NaCl",
+    iterations = 80000,
+    backend = backend
+)
 ###############################################################################
 test_vector_1_384 = PBKDF2HMAC (
     algorithm = hashes.SHA384(),
@@ -103,6 +119,22 @@ test_vector_6_384 = PBKDF2HMAC (
     length = 16,
     salt = b"sa\0lt",
     iterations = 4096,
+    backend = backend
+)
+
+test_vector_7_384 = PBKDF2HMAC (
+    algorithm = hashes.SHA384(),
+    length = 128,
+    salt = b"salt",
+    iterations = 1,
+    backend = backend
+)
+
+test_vector_8_384 = PBKDF2HMAC (
+    algorithm = hashes.SHA384(),
+    length = 128,
+    salt = b"NaCl",
+    iterations = 80000,
     backend = backend
 )
 ###############################################################################
@@ -153,6 +185,22 @@ test_vector_6_512 = PBKDF2HMAC (
     iterations = 4096,
     backend = backend
 )
+
+test_vector_7_512 = PBKDF2HMAC (
+    algorithm = hashes.SHA512(),
+    length = 128,
+    salt = b"salt",
+    iterations = 1,
+    backend = backend
+)
+
+test_vector_8_512 = PBKDF2HMAC (
+    algorithm = hashes.SHA512(),
+    length = 128,
+    salt = b"NaCl",
+    iterations = 80000,
+    backend = backend
+)
 ###############################################################################
 print("SHA256 TC1:", binascii.hexlify(test_vector_1_256.derive(b"password")))
 print("SHA256 TC2:", binascii.hexlify(test_vector_2_256.derive(b"password")))
@@ -160,6 +208,8 @@ print("SHA256 TC3:", binascii.hexlify(test_vector_3_256.derive(b"password")))
 print("SHA256 TC4:", binascii.hexlify(test_vector_4_256.derive(b"password")))
 print("SHA256 TC5:", binascii.hexlify(test_vector_5_256.derive(b"passwordPASSWORDpassword")))
 print("SHA256 TC6:", binascii.hexlify(test_vector_6_256.derive(b"pass\0word")))
+print("SHA512 TC7:", binascii.hexlify(test_vector_7_256.derive(b"passwd")))
+print("SHA512 TC8:", binascii.hexlify(test_vector_8_256.derive(b"Password")))
 ###############################################################################
 print("SHA384 TC1:", binascii.hexlify(test_vector_1_384.derive(b"password")))
 print("SHA384 TC2:", binascii.hexlify(test_vector_2_384.derive(b"password")))
@@ -167,6 +217,8 @@ print("SHA384 TC3:", binascii.hexlify(test_vector_3_384.derive(b"password")))
 print("SHA384 TC4:", binascii.hexlify(test_vector_4_384.derive(b"password")))
 print("SHA384 TC5:", binascii.hexlify(test_vector_5_384.derive(b"passwordPASSWORDpassword")))
 print("SHA384 TC6:", binascii.hexlify(test_vector_6_384.derive(b"pass\0word")))
+print("SHA512 TC7:", binascii.hexlify(test_vector_7_384.derive(b"passwd")))
+print("SHA512 TC8:", binascii.hexlify(test_vector_8_384.derive(b"Password")))
 ###############################################################################
 print("SHA512 TC1:", binascii.hexlify(test_vector_1_512.derive(b"password")))
 print("SHA512 TC2:", binascii.hexlify(test_vector_2_512.derive(b"password")))
@@ -174,3 +226,5 @@ print("SHA512 TC3:", binascii.hexlify(test_vector_3_512.derive(b"password")))
 print("SHA512 TC4:", binascii.hexlify(test_vector_4_512.derive(b"password")))
 print("SHA512 TC5:", binascii.hexlify(test_vector_5_512.derive(b"passwordPASSWORDpassword")))
 print("SHA512 TC6:", binascii.hexlify(test_vector_6_512.derive(b"pass\0word")))
+print("SHA512 TC7:", binascii.hexlify(test_vector_7_512.derive(b"passwd")))
+print("SHA512 TC8:", binascii.hexlify(test_vector_8_512.derive(b"Password")))
