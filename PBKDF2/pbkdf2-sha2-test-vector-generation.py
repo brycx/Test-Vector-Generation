@@ -10,6 +10,78 @@ backend = default_backend()
 # Parameters are taken from the [RFC 6070](https://datatracker.ietf.org/doc/rfc6070/)
 # that uses PBKDF2-HMAC-SHA1.
 ###############################################################################
+test_vector_1_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 20,
+    salt = b"salt",
+    iterations = 1,
+    backend = backend
+)
+
+test_vector_2_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 20,
+    salt = b"salt",
+    iterations = 2,
+    backend = backend
+)
+
+test_vector_3_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 20,
+    salt = b"salt",
+    iterations = 4096,
+    backend = backend
+)
+
+test_vector_4_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 20,
+    salt = b"salt",
+    iterations = 16777216,
+    backend = backend
+)
+
+test_vector_5_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 25,
+    salt = b"saltSALTsaltSALTsaltSALTsaltSALTsalt",
+    iterations = 4096,
+    backend = backend
+)
+
+test_vector_6_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 16,
+    salt = b"sa\0lt",
+    iterations = 4096,
+    backend = backend
+)
+
+test_vector_7_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 128,
+    salt = b"salt",
+    iterations = 1,
+    backend = backend
+)
+
+test_vector_8_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 128,
+    salt = b"NaCl",
+    iterations = 80000,
+    backend = backend
+)
+
+test_vector_9_224 = PBKDF2HMAC (
+    algorithm = hashes.SHA224(),
+    length = 256,
+    salt = b"sa\0lt",
+    iterations = 4096,
+    backend = backend
+)
+###############################################################################
 test_vector_1_256 = PBKDF2HMAC (
     algorithm = hashes.SHA256(),
     length = 20,
@@ -225,6 +297,16 @@ test_vector_9_512 = PBKDF2HMAC (
     iterations = 4096,
     backend = backend
 )
+###############################################################################
+print("SHA224 TC1:", binascii.hexlify(test_vector_1_224.derive(b"password")))
+print("SHA224 TC2:", binascii.hexlify(test_vector_2_224.derive(b"password")))
+print("SHA224 TC3:", binascii.hexlify(test_vector_3_224.derive(b"password")))
+print("SHA224 TC4:", binascii.hexlify(test_vector_4_224.derive(b"password")))
+print("SHA224 TC5:", binascii.hexlify(test_vector_5_224.derive(b"passwordPASSWORDpassword")))
+print("SHA224 TC6:", binascii.hexlify(test_vector_6_224.derive(b"pass\0word")))
+print("SHA224 TC7:", binascii.hexlify(test_vector_7_224.derive(b"passwd")))
+print("SHA224 TC8:", binascii.hexlify(test_vector_8_224.derive(b"Password")))
+print("SHA224 TC9:", binascii.hexlify(test_vector_9_224.derive(b"Password")))
 ###############################################################################
 print("SHA256 TC1:", binascii.hexlify(test_vector_1_256.derive(b"password")))
 print("SHA256 TC2:", binascii.hexlify(test_vector_2_256.derive(b"password")))
