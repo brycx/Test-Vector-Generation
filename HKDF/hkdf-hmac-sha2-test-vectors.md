@@ -5,6 +5,114 @@ This package has been [tested](https://cryptography.io/en/latest/development/tes
 with the original test vectors from the [RFC 5869](https://tools.ietf.org/html/rfc5869.html).
 
 
+#### RFC 5869 Test Case 1
+```
+     Input:
+       IKM  = 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+       Salt = 000102030405060708090a0b0c
+       Info = f0f1f2f3f4f5f6f7f8f9
+       dkLen = 42
+
+     Output:
+       HKDF-HMAC-SHA1 = d6000ffb5b50bd3970b260017798fb9c8df9ce2e2c16b6cd709cca07dc3cf9cf26d6c6d750d0aaf5ac94
+
+       HKDF-HMAC-SHA224 = 2f21cd7cbc818ca5c561b933728e2e08e154a87e1432399a820dee13aa222d0cee6152fa539ab70f8e80
+
+       HKDF-HMAC-SHA256 = 3cb25f25faacd57a90434f64d0362f2a2d2d0a90cf1a5a4c5db02d56ecc4c5bf34007208d5b887185865
+
+       HKDF-HMAC-SHA384 = 9b5097a86038b805309076a44b3a9f38063e25b516dcbf369f394cfab43685f748b6457763e4f0204fc5
+
+       HKDF-HMAC-SHA512 = 832390086cda71fb47625bb5ceb168e4c8e26a1a16ed34d9fc7fe92c1481579338da362cb8d9f925d7cb
+```
+
+#### RFC 5869 Test Case 2
+```
+     Input:
+       IKM  = 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f
+       Salt = 606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeaf
+       Info = b0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+       dkLen = 82
+
+     Output:
+       HKDF-HMAC-SHA1 = 0bd770a74d1160f7c9f12cd5912a06ebff6adcae899d92191fe4305673ba2ffe8fa3f1a4e5ad79f3f334b3b202b2173c486ea37ce3d397ed034c7f9dfeb15c5e927336d0441f4c4300e2cff0d0900b52d3b4
+
+       HKDF-HMAC-SHA224 = 3e49703c243a3894916349b52a8f55c7c160452f97b2870f04ba924ba9056ab351765b04207231158dcb03d0c7d427cb2b7e060179459f9daffee05e8705113f7bc45b4f452601d884df6dfd4ff9dacfde69
+
+       HKDF-HMAC-SHA256 = b11e398dc80327a1c8e7f78c596a49344f012eda2d4efad8a050cc4c19afa97c59045a99cac7827271cb41c65e590e09da3275600c2f09b8367793a9aca3db71cc30c58179ec3e87c14c01d5c1f3434f1d87
+
+       HKDF-HMAC-SHA384 = 484ca052b8cc724fd1c4ec64d57b4e818c7e25a8e0f4569ed72a6a05fe0649eebf69f8d5c832856bf4e4fbc17967d54975324a94987f7f41835817d8994fdbd6f4c09c5500dca24a56222fea53d8967a8b2e
+
+       HKDF-HMAC-SHA512 = ce6c97192805b346e6161e821ed165673b84f400a2b514b2fe23d84cd189ddf1b695b48cbd1c8388441137b3ce28f16aa64ba33ba466b24df6cfcb021ecff235f6a2056ce3af1de44d572097a8505d9e7a93
+```
+
+#### RFC 5869 Test Case 3
+```
+     Input:
+       IKM  = 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+       Salt = (specified as 0 bytes)
+       Info = (specified as 0 bytes)
+       dkLen = 42
+
+     Output:
+       HKDF-HMAC-SHA1 = 0ac1af7002b3d761d1e55298da9d0506b9ae52057220a306e07b6b87e8df21d0ea00033de03984d34918
+
+       HKDF-HMAC-SHA224 = 2a268083ea787e06604a5845f1a53544dd7847bd6fb74adfcc1178baac5a0fe74076f8935971c00c2b19
+
+       HKDF-HMAC-SHA256 = 8da4e775a563c18f715f802a063c5a31b8a11f5c5ee1879ec3454e5f3c738d2d9d201395faa4b61a96c8
+
+       HKDF-HMAC-SHA384 = c8c96e710f89b0d7990bca68bcdec8cf854062e54c73a7abc743fade9b242daacc1cea5670415b52849c
+
+       HKDF-HMAC-SHA512 = f5fa02b18298a72a8c23898a8703472c6eb179dc204c03425c970e3b164bf90fff22d04836d0e2343bac
+```
+
+#### RFC 5869 Test Case 4
+```
+     Input:
+       IKM  = 0b0b0b0b0b0b0b0b0b0b0b
+       Salt = 000102030405060708090a0b0c
+       Info = f0f1f2f3f4f5f6f7f8f9
+       dkLen = 42
+
+     Output:
+       HKDF-HMAC-SHA1 = 085a01ea1b10f36933068b56efa5ad81a4f14b822f5b091568a9cdd4f155fda2c22e422478d305f3f896
+
+       HKDF-HMAC-SHA224 = 7fc8ae0335ed468cef56be091f6478a1aae84c0da54ce5176aa38946c79e210ea32a4487e2138405c340
+
+       HKDF-HMAC-SHA256 = 58dce10d5801cdfda831726bfebcb743d14a7ee83aa057a93d59b0a1317ff09d105ccecf535692b14dd5
+
+       HKDF-HMAC-SHA384 = fb7e6743eb42cde96f1b70778952ab7548cafe53249f7ffe1497a1635b201ff185b93e951992d858f11a
+
+       HKDF-HMAC-SHA512 = 7413e8997e020610fbf6823f2ce14bff01875db1ca55f68cfcf3954dc8aff53559bd5e3028b080f7c068
+```
+
+#### RFC Test Case 5
+
+This test case repeats the inputs from RFC 5869 Test Case 2.
+
+#### RFC Test Case 6
+
+This test case repeats the inputs from RFC 5869 Test Case 3.
+
+#### RFC 5869 Test Case 7
+```
+     Input:
+       IKM  = 0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c
+       Salt = None/NULL (defaults to HashLen 0 bytes)
+       Info = (specified as 0 bytes)
+       dkLen = 42
+
+     Output:
+       HKDF-HMAC-SHA1 = 2c91117204d745f3500d636a62f64f0ab3bae548aa53d423b0d1f27ebba6f5e5673a081d70cce7acfc48
+
+       HKDF-HMAC-SHA224 = ca8401e645b3a58e00992857fe0038cb1bf8dc51edf052336c08f3bed682c83e77803cdd16d156bb8a30
+
+       HKDF-HMAC-SHA256 = 596899179ab1bc00a7c03786ff43ee535004be2bb9be68bc1406636f54bd338a66a237ba2acbcee3c9a7
+
+       HKDF-HMAC-SHA384 = 6ad7c726c84009546a76e0545df266787e2b2cd6ca4373a1f31450a7bdf9482bfab811f554200ead8f53
+
+       HKDF-HMAC-SHA512 = 1407d46013d98bc6decefcfee55f0f90b0c7f63d68eb1a80eaf07e953cfc0a3a5240a155d6e4daa965bb
+```
+
 #### Test Case 1
 ```
      Input:
@@ -14,6 +122,8 @@ with the original test vectors from the [RFC 5869](https://tools.ietf.org/html/r
        dkLen = 32
 
      Output:
+       HKDF-HMAC-SHA224 = 6fb8bbaefa7c384e0741863c1f9bd4b3cb9a3cb2277f67b9fd03cc435509f94d
+
        HKDF-HMAC-SHA256 = b2a3d45126d31fb6828ef00d76c6d54e9c2bd4785e49c6ad86e327d89d0de940
 
        HKDF-HMAC-SHA384 = 0a8c436c47640798993780b9e4ef9044fe307889e84bdd401a33a7abdb6d5c36
@@ -30,6 +140,9 @@ with the original test vectors from the [RFC 5869](https://tools.ietf.org/html/r
       dkLen = 128
 
     Output:
+      HKDF-HMAC-SHA224 = 3d59866499c52f3f6c05b46f746271472a5e03e0bce7265e26babad667135a04edce46255ce02b9764b1fcca676a71ae93e6edecadaac68f6e2a6050218ee7c3506924cdd2b657dafd537b1eeffd7d0e4c293388283079e6be6db369cc4dbdbe2bfb8771f9dc32ad9504b
+      4cd1be369e7c8d6de1e3d34070a0ce1976eb1d857f0
+
       HKDF-HMAC-SHA256 = ce6878ed2512bdb79282ff9795f091a78ba3434363ec7f7f4a2eb64265c8d6bc57deb3fcae070034ccdf25f8ac2da166c45822053c5de630c5aa76e7529e9ce728ab6d09bbb1af359d38f073da4da0c409028db6d310abf706121c37f386d1c7eb961feaf921449dc3621
       4dc2e2b6f280170d8d2a7c5228d500c22aab56fda62
 
@@ -48,6 +161,9 @@ with the original test vectors from the [RFC 5869](https://tools.ietf.org/html/r
       dkLen = 256
 
     Output:
+      HKDF-HMAC-SHA224 = 85a6a39332390b62ec4ad891b0824e4d6f07df0966c58de9af97d4d6482da75bcc2a6d612e2fc1daa57b82c5808cb502f0f869f8449872ea8107b0efddc5e25303b6fd82dd89ef005f8842178d32d904ef9e5c04e247c06c0c14ab41ff761097381faceba9a83c6d88606
+      6549827426a3c90a1313c92cb34e8515cf8e4f94fc674120071f9dfb6e874e9708a93757081a678e38c87c95d16927bf26305b46cc17aed060d5545a85af6ca5fd7a117ccd0ea73e8f99be459ea1cd52f0a003654ddd094fcaf1b43e2960e0ebd407a7408bf59f356a3ce22d8595e0bbcad4247588aa83bc329e61f948dc9cc32c8f4550d32f7d2d244d84b83c92bbee2573ffe034d
+
       HKDF-HMAC-SHA256 = debf25481a437e4b11c7fb01ea15b33c6a024ad61e6e1d7d70d12ed9aa0fb8d769e222d8545dc1a635b7ff3a910f9d6faaf67c233804a261c2eaed1c583c3d3cf65070d74e853bb0c1c18434f41479feb54e14e0188d48c4e9ac26a96a8aa5ee1c76273adbb4b29ece749
       f5ebb8ffa6b14eccb3649a22022e63db73f349eed72b9ac05b2f281c8fa3b94411bdf0b30c0bc0a2dbe8957fe9ca63f4721d789bd5b2ac22ddab78dd5d73c06071cec56c71b0d8d289f0b96aa8742b8a0a0d4f2e832dc5e5b20671877937f48268302ef781bbdda741fd7d5eb4f6777b0b5e786e851df0abbb3313919de33a399c333c969473a597827c21fc431094566847621feda
 
@@ -67,6 +183,9 @@ with the original test vectors from the [RFC 5869](https://tools.ietf.org/html/r
       dkLen = 256
 
     Output:
+      HKDF-HMAC-SHA224 = 51abe6ceddee458477a05710af81cfb86cb95186619ed8638be071e3180e12a2a6e01d91255e0da0a239282b1728bfc0ef557450437fedde3098818e134fc4817b86e7061b8bee8e28aceb79cadb7267538744fa656024ad07876657ad8af871fc139f8f310d8b82dd2ba
+      7826c03df1ddbd08f6b1f93c4b9b12ddb5a5b90b28a37a6c01be002fe661d60b50e2d81f5eacdce9d2173822fffa369982b486e18a2d0b97498492a9e8725085c484a158e8207f27f7cedea49742e65a5e62e34a8edc9a73bbd406ac4c0f7cb57be160475025e283174dba39d979e3ed9f4c7de6d0e84815d88e50c56c92ea7ee1ef1c629b32cd3c2248ae84097f04a49aea1723b60
+
       HKDF-HMAC-SHA256 = dae56c32147f77c16acfbf7924d862f6a665b2bdb261c6f24f28c9d29749f0ddf1304ba32275a404e26bdae66c223f6c6c55ac7bb0bc6f95dec0840313cc4b2d525387ff7b2b765b745fbce9dcb5aae3ce3b8b6cff224c34fa1fb246361bcba9a621eb07b9317e116e2c2
       a5504d2d406c89777f9f8bdffca591fca43ecf517b93c49471003128495e985ec88c8b61a7560c503db1365e491b1a6132e56605eea7809dffff7f13052a0b6c9044dc64ec289a3b8169304e74fa623e0902f94d546cca95884c02ebcfd507fb8229c091cbb7d4b76f26048dd2b33e0b131bbd34af8c7722bcce9be5b47e2401adf7f451e65913f370d005d710236e29dcce3d1edd5
 
@@ -86,6 +205,8 @@ with the original test vectors from the [RFC 5869](https://tools.ietf.org/html/r
       dkLen = 32
 
     Output:
+      HKDF-HMAC-SHA224 = 28658c2e85cae24b6ddb389d0d5addcf5cc6b7b5c7259b6250b4dc31d5a72e5a
+
       HKDF-HMAC-SHA256 = 573b98885355e49f23dacdcaf549f0edfdf366a32444485b28153c7f464c8f46
 
       HKDF-HMAC-SHA384 = 3c58b0271ffd73b3b4347e5ebd3220083296bad2ac3294f72b14fe1b52754b27
@@ -102,6 +223,8 @@ with the original test vectors from the [RFC 5869](https://tools.ietf.org/html/r
       dkLen = 16
 
     Output:
+      HKDF-HMAC-SHA224 = 9345d4eeda2e0d3da661d96190a826d8
+
       HKDF-HMAC-SHA256 = 71505363b1096f544ec9e40e361963dd
 
       HKDF-HMAC-SHA384 = 851ff840cd77e4549736a7ec0ed8869f
